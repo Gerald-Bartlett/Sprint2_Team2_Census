@@ -1,13 +1,13 @@
 {
   "name": "login",
   "version": "1.0.0",
-  "description": "",
   "main": "index.js",
   "scripts": {
-    "devStart": "nodemon server.js"
+    "devStart": "nodemon server.js",
+    "start": "node server.js"
   },
   "keywords": [],
-  "author": "Peter Rawsthorne",
+  "author": "Team2",
   "license": "ISC",
   "dependencies": {
     "bcrypt": "^5.0.1",
@@ -24,5 +24,14 @@
   "devDependencies": {
     "dotenv": "^16.0.0",
     "nodemon": "^2.0.15"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Gerald-Bartlett/Sprint2_Team2_login.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Gerald-Bartlett/Sprint2_Team2_login/issues"
+  },
+  "homepage": "https://github.com/Gerald-Bartlett/Sprint2_Team2_login#readme",
+  "description": ""
 }

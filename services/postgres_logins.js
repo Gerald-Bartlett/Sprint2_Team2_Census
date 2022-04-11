@@ -1,4 +1,4 @@
-const dal = require("./pdb");
+const dal = require("./postgres_db");
 
 async function getLogins() {
   let SQL = `SELECT * FROM public."Logins"`;
@@ -27,11 +27,11 @@ async function getLoginById(id) {
     console.log(error);
   } 
 };
-async function addLogin(name, email, password, uuidv4) {
-  let SQL = `INSERT INTO public."Logins"(username, email, password, uuid)
+async function addLogin(name, email, password, uuid) {
+  let SQL = `INSERT INTO public."Logins"(name, email, password, uuid)
     VALUES ($1, $2, $3, $4) RETURNING id;`
   try {
-    let results = await dal.query(SQL, [name, email, password, uuidv4]);
+    let results = await dal.query(SQL, [name, email, password, uuid]);
     return results.rows[0].id;
   } catch (error) {
     console.log(error);

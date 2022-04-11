@@ -1,4 +1,20 @@
-<h1>Hello <%= name %></h1>
+<h1>Hello, choose the database that you wish to search <%= name %></h1>
 <form action="/logout?_method=DELETE" method="POST">
     <button type="submit">Logout</button>
 </form>
+<body>
+
+
+    <div class="search-container">
+        <form action="action">
+            <input type="text" placeholder="Postgres" name="search" >
+            <button type="submit">Submit</button>
+        </form>
+        <form action="action">
+            <input type="text" placeholder="Mongo" name="search" >
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+    
+    
+    </body>
