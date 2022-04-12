@@ -12,11 +12,10 @@ const uuid = require("uuid");
 const logins = require("./services/postgres_logins"); // use POSTGRESQL dal
 // const logins = require('./services/mongodb_logins') // use MONGODB dal
 
-
 const app = express();
 const censusRouter = require("./routes/census");
 
-const censusMongoRouter = require("./routes/mongo_census")
+const censusMongoRouter = require("./routes/mongo_census");
 
 passport.use(
   new localStrategy(
@@ -116,12 +115,11 @@ function checkAuthenticated(req, res, next) {
   res.redirect("/login");
 }
 
-
 function checkNotAuthenticated(req, res, next) {
   if (req.isAuthenticated()) {
     return res.redirect("/");
   }
   return next();
 }
-app.use(express.static('public'));
+app.use(express.static("public"));
 app.listen(3000);
