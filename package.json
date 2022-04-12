@@ -8,14 +8,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/DavidJTemple/Sprint2_Team2_login.git"
+    "url": "git+https://github.com/Gerald-Bartlett/Sprint2_Team2_login.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/DavidJTemple/Sprint2_Team2_login/issues"
+    "url": "https://github.com/Gerald-Bartlett/Sprint2_Team2_login/issues"
   },
-  "homepage": "https://github.com/DavidJTemple/Sprint2_Team2_login#readme",
+  "homepage": "https://github.com/Gerald-Bartlett/Sprint2_Team2_login#readme",
   "dependencies": {
     "bcrypt": "^5.0.1",
     "ejs": "^3.1.6",
