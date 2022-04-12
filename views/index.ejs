@@ -1,4 +1,20 @@
-<h1>Hello <%= name %></h1>
-<form action="/logout?_method=DELETE" method="POST">
-    <button type="submit">Logout</button>
-</form>
+<html lang="en">
+    <%- include('./partials/header.ejs') %>
+    <body>
+        <%- include('./partials/nav.ejs') %>
+        <div class="lost content">
+          <h1>Please choose a Database to search</h1>
+          <form action="/logout?_method=DELETE" method="POST"></br>
+            <button id="gin" type="submit">Logout</button>
+          </form>
+          
+          <a id="line" href="/census">Use Postgres Database</a>
+          <a id="line" href="/mongo_census">Use Mongo Database</a>
+          
+        </div>
+    </body>
+    <%- include('./partials/footer.ejs') %>
+</html>
+
+
+

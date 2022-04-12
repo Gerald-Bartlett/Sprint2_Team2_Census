@@ -1,5 +1,13 @@
-<h1>Register</h1>
-<form action="/register" method="POST">
+<html lang="en">
+    <%- include('./partials/header.ejs') %>
+    <body>
+        <%- include('./partials/nav.ejs') %>
+        <div class="lost content">
+            <h2>New Users have to register first, so register please! </br>Been here before , carry on to the Login Page!</h2>
+        </br></br>
+            <h1>Register</h1>
+        </div>
+<form class="text" action="/register" method="POST">
     <div> 
         <label for="name">Name</label>
         <input type="text" id="name" name="name" required>
@@ -12,6 +20,10 @@
         <label for="password">Password</label>
         <input type="password" id="password" name="password" required>
     </div>
-    <button type="submit">Register</button>
+    <button id="gin" type="submit">Register</button>
 </form>
-<a href="/login">Login</a>
+<a class="text" href="/login">Login</a>
+
+    </body>
+    <%- include('./partials/footer.ejs') %>
+</html>

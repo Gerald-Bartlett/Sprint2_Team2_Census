@@ -1,0 +1,25 @@
+<html lang="en">
+    <%- include('./partials/header.ejs') %>
+    <body>
+        <%- include('./partials/nav.ejs') %>
+        <div class="lost content">
+          <h2>All Census</h2>
+          <% if (allCensus.length > 0) { %>
+             <% allCensus.forEach(census => { %> 
+                 <p class="census">
+                      <b><a href="<%= census.family_name%>"><%= census.family_name%></a></b> <%= census.household_id%>  <%= census.census_year%>
+                      <%= census.parent1_first_name%> <%= census.parent1_date_of_birth%> <%= census.parent1_gender%>
+                      <%= census.parent2_first_name%> <%= census.parent2_date_of_birth%> <%= census.parent2_gender%>
+                      <%= census.child_name%> <%= census.child_date_of_birth%> <%= census.child_gender%>
+                      <%= census.address%> <%= census.province%> <%= census.phone_number%> <%= census.household_income%>
+                 </p> <br/>
+                <% }) %>
+              <% } %>
+        </div>
+    </body>
+    <%- include('./partials/footer.ejs') %>
+</html>
+
+
+
+    

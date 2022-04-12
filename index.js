@@ -5,11 +5,12 @@ const express = require("express");
 const uuid = require("uuid");
 const bcrypt = require("bcrypt");
 const app = express();
-const logins = require("./services/plogins"); // use POSTGRESQL dal
-//const logins = require('./services/mlogins') // use MONGODB dal
-const PORT = process.env.PORT || 3001;
+const logins = require("./services/postgres_logins"); // use POSTGRESQL dal
+// const logins = require('./services/mongodb_logins') // use MONGODB dal
+const PORT = process.env.PORT || 3000;
 
-//app.use(express.urlencoded({ extended: false }));
+app.use(express.static('public'));
+app.use(express.urlencoded({ extended: false }));
 
 app.get("/", (req, res) => {
   res.json({ info: `Node.js and Express API` });
@@ -40,31 +41,23 @@ app.get("/logins/:id", async (req, res) => {
   }
 });
 
-app.get("/create", async (req, res) => {
-  var queryStr = require("url").parse(req.url, true).query;
+app.get('/create', async (req, res) => {
+  var queryStr = require('url').parse(req.url,true).query;
   const hashedPassword = await bcrypt.hash(queryStr.password, 10);
-  if (queryStr.email && queryStr.username && queryStr.password) {
-    var result = await logins.addLogin(
-      queryStr.username,
-      queryStr.email,
-      hashedPassword,
-      uuid.v4()
-    );
+  if (queryStr.email && queryStr.username && queryStr.password ) {
+      var result = await logins.addLogin(queryStr.username, queryStr.email, hashedPassword, uuid.v4());
   } else {
-    console.log("Not enough query string parameters.");
+      console.log('Not enough query string parameters.');
   }
 
-  if (result == null) {
-    console.log("Unsuccessful in add.");
+  if ( result == null ) {
+      console.log('Unsuccessful in add.');
   } else {
-    console.log(result);
-    res.json({
-      info:
-        `New login ` + queryStr.username + ` was created with _id: ` + result,
-    });
+      console.log(result);
+      res.json({ info: `New login ` + queryStr.username + ` was created with _id: ` + result });
   }
 });
 
 app.listen(PORT, () => {
-  console.log(`Simple app running on port ${PORT}.`);
+  console.log(`Simple app running on port ${PORT}.`)
 });
